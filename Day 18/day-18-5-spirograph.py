@@ -1,7 +1,6 @@
 import turtle as t
 import random
 
-tim = t.Turtle()
 t.colormode(255)
 
 
@@ -14,15 +13,25 @@ def random_color():
 
 
 ########### Challenge 5 - Spirograph ########
-def spiro_graph():
-    zoan = t.Turtle()
-    zoan.speed("fastest")
-    for corner in range(0, 361, 5):
+zoan = t.Turtle()
+zoan.speed("fastest")
+
+
+# def spiro_graph():
+#     for corner in range(0, 361, 5):
+#         zoan.color(random_color())
+#         zoan.circle(100)
+#         zoan.setheading(corner)
+
+def spiro_graph_v2(gap_of_size):
+    for _ in range(int(360 / gap_of_size)):
         zoan.color(random_color())
         zoan.circle(100)
-        zoan.setheading(corner)
+        zoan.setheading(zoan.heading() + gap_of_size)
 
 
-spiro_graph()
+spiro_graph_v2(10)
+
+# spiro_graph()
 
 t.Screen().exitonclick()

@@ -13,10 +13,11 @@ def random_color():
 
 
 def draw_different_shapes():
-    for edge in range(3, 11):
+    for edge in range(3, 13):
         random_color()
         for i in range(edge):
             zoan.forward(70)
+            zoan.speed("fast")
             zoan.right(360 / edge)
 
 

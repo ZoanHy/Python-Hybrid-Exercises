@@ -4,8 +4,8 @@
 from turtle import Turtle, Screen
 tim = Turtle()
 
-import heroes
-print(heroes.gen())
+# import heroes
+# print(heroes.gen())
 
 import turtle as t
 tim = t.Turtle()
@@ -30,7 +30,6 @@ tim = t.Turtle()
 ######## Challenge 1 - Draw a Square ############
 
 def draw_a_square():
-    global zoan_tt
     for _ in range(4):
         zoan_tt.right(90)
         zoan_tt.forward(100)
@@ -41,4 +40,4 @@ zoan_tt.shape("turtle")
 zoan_tt.color("green")
 draw_a_square()
 
-turtle.Screen().exitonclick()
+Screen().exitonclick()
