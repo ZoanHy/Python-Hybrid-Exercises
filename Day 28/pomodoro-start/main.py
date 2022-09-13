@@ -94,6 +94,7 @@ tomato_img = tkinter.PhotoImage(file="tomato.png")
 canvas.create_image(103, 112, image=tomato_img)
 tomato_time = canvas.create_text(103, 132, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
 canvas.grid(row=1, column=1)
+
 # count_down(5)
 
 # Create button
