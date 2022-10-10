@@ -7,6 +7,7 @@
     <orderEntry type="module" module-name="Bai_Tap" />
     <orderEntry type="module" module-name="ML_Math_App_Kteam" />
     <orderEntry type="module" module-name="BaiTapMathApp" />
+    <orderEntry type="module" module-name="Soure_Code" />
   </component>
   <component name="PyDocumentationSettings">
     <option name="format" value="PLAIN" />
