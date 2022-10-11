@@ -26,5 +26,5 @@ if price > TARGET_PRICE:
         connection.starttls()
         connection.login(my_mail, password)
         connection.sendmail(from_addr=my_mail,
-                            to_addrs=my_mail,
+                            to_addrs="huyleezoan@gmail.com",
                             msg=(f"Subject: Amazon Price Alear!\n\n{product_name}: ${price}").encode("utf-8"))
