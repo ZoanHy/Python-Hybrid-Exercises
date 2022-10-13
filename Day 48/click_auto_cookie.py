@@ -25,34 +25,48 @@ factory_select = driver.find_element(By.ID, "buyFactory")
 grandma_select = driver.find_element(By.ID, "buyGrandma")
 cursor_select = driver.find_element(By.ID, "buyCursor")
 
+items = driver.find_elements(By.CSS_SELECTOR, "#store div")
+item_ids = [item.get_attribute("id") for item in items]
+
 five_seconds = time.time() + 5
 five_minutes = time.time() + 60 * 5
 
-# while True:
-#     cookie_button.click()
-#
-#     if time.time() > timeout:
-all_prices_tag = driver.find_elements(By.CSS_SELECTOR, '#store b')
-prices = []
+while True:
+    cookie_button.click()
 
-for tag in all_prices_tag:
-    prices.append(tag.get_attribute('innerHTML').split(" ")[-1].replace(',', ''))
+    if time.time() > five_seconds:
+        all_prices = driver.find_elements(By.CSS_SELECTOR, '#store b')
+        prices = []
 
-# money = int(total_cookies.get_attribute('innerHTML'))
-# portal_cost = int(
-#     portal_select.find_element(By.TAG_NAME, 'b').get_attribute('innerHTML').split(" ")[-1].replace(',', ''))
-# alchemy_cost = int(
-#     alchemy_lab_select.find_element(By.TAG_NAME, 'b').get_attribute('innerHTML').split(" ")[-1].replace(",", ''))
-#
-# shipment_cost = int(
-#     shipment_select.find_element(By.TAG_NAME, 'b').get_attribute('innerHTML').split(" ")[-1].replace(',', ''))
-# mine_cost = int(
-#     mine_select.find_element(By.TAG_NAME, 'b').get_attribute('innerHTML').split(" ")[-1].replace(',', ''))
-# factory_cost = int(
-#     factory_select.find_element(By.TAG_NAME, 'b').get_attribute('innerHTML').split(" ")[-1].replace(',', ''))
-# grandma_cost = int(
-#     grandma_select.find_element(By.TAG_NAME, 'b').get_attribute('innerHTML').split(" ")[-1].replace(',', ''))
-# cursor_cost = int(
-#     cursor_select.find_element(By.TAG_NAME, 'b').get_attribute('innerHTML').split(" ")[-1].replace(',', ''))
+        for tag in all_prices:
+            element_text = tag.get_attribute('innerHTML')
+            if element_text != "":
+                prices.append(
+                    int(element_text.split(" ")[-1].replace(',', '')))
 
-# currsor_run()
+        cookie_upgrade = {}
+        for n in range(len(prices)):
+            cookie_upgrade[prices[n]] = item_ids[n]
+
+        money_current = driver.find_element(By.ID, "money").get_attribute('innerHTML')
+        if "," in money_current:
+            money_current = money_current.replace(",", "")
+        cookie_count = int(money_current)
+
+        affordable_upgrades = {}
+
+        for cost, id in cookie_upgrade.items():
+            if cookie_count > cost:
+                affordable_upgrades[cost] = id
+
+        highest_price = max(affordable_upgrades)
+
+        to_purchase_id = affordable_upgrades[highest_price]
+
+        driver.find_element(By.ID, to_purchase_id).click()
+        timeout = time.time() + 5
+
+    if time.time() > five_minutes:
+        cookie_per = driver.find_element(By.ID, "cps").get_attribute('innerHTML')
+        print(cookie_per)
+        break
