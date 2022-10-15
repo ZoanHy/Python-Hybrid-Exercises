@@ -30,6 +30,8 @@ password_input.send_keys(PASSWORD)
 sign_in_button_2 = driver.find_element(By.XPATH, '//*[@id="organic-div"]/form/div[3]/button')
 sign_in_button_2.click()
 
+time.sleep(10)
+
 # first_job = driver.find_element(By.XPATH, '//*[@id="ember232"]')
 # first_job.click()
 # time.sleep(2)
@@ -56,5 +58,24 @@ sign_in_button_2.click()
 
 list_jobs = driver.find_elements(By.CSS_SELECTOR, 'ul.scaffold-layout__list-container li.ember-view')
 
-first_job = list_jobs[1].find_elements(By.CSS_SELECTOR, 'div > div')[0]
-print(first_job.get_attribute('innerHTML'))
+for job in list_jobs:
+    job_button = job.find_elements(By.CSS_SELECTOR, 'div > div')[0].find_elements(By.CSS_SELECTOR, 'div')[1]
+    # print(first_job.get_attribute('innerHTML'))
+
+    job_button.click()
+    time.sleep(2)
+    job_save_button = driver.find_element(By.CSS_SELECTOR, '.jobs-save-button')
+    job_save_button.click()
+    time.sleep(2)
+
+    dismis_button = driver.find_element(By.CSS_SELECTOR, '.artdeco-toasts_toasts button')
+    dismis_button.click()
+    time.sleep(1)
+
+    close_message_button = driver.find_elements(By.CSS_SELECTOR, '.msg-overlay-bubble-header__controls button')[2]
+    close_message_button.click()
+    time.sleep(2)
+#
+# follow_button = driver.find_element(By.CSS_SELECTOR,
+#                                     '.jobs-search__job-details--container')
+# print(follow_button.get_attribute('innerHTML'))

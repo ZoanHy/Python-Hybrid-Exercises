@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../../../Second 3/semester 5/Math App/BaiTapMathApp/.idea/BaiTapMathApp.iml" filepath="$PROJECT_DIR$/../../../Second 3/semester 5/Math App/BaiTapMathApp/.idea/BaiTapMathApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../../Second 3/semester 5/Digital Singal Processing/Bai_Tap/.idea/Bai_Tap.iml" filepath="$PROJECT_DIR$/../../../Second 3/semester 5/Digital Singal Processing/Bai_Tap/.idea/Bai_Tap.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../../Second 3/semester 5/Math App/MachineLearning_Basic/.idea/ML_Math_App_Kteam.iml" filepath="$PROJECT_DIR$/../../../Second 3/semester 5/Math App/MachineLearning_Basic/.idea/ML_Math_App_Kteam.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../../Second 3/semester 5/Digital Singal Processing/Soure_Code/.idea/Soure_Code.iml" filepath="$PROJECT_DIR$/../../../Second 3/semester 5/Digital Singal Processing/Soure_Code/.idea/Soure_Code.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/_PythonChallenge.iml" filepath="$PROJECT_DIR$/.idea/_PythonChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/_ChallengeHybrid.iml" filepath="$PROJECT_DIR$/.idea/_ChallengeHybrid.iml" />
     </modules>
   </component>
 </project>
