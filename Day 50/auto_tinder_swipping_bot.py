@@ -1,27 +1,30 @@
 import time
 import os
+from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+load_dotenv()
 
-MAIL = os.environ['MAIL']
-PASS = os.environ['PASSWORD']
+MAIL = os.getenv('MAIL')
+# PASS = os.environ['PASSWORD']
 
 URL = "https://tinder.com"
 
-# service = Service("../../../../../../ASUS/Documents/chromedriver.exe")
+service = Service("driver/chromedriver.exe")
 option = Options()
 # option.add_experimental_option("debuggerAddress", "localhost:9111")
 
 # os.popen(
 #     '"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9111 --user-data-dir="C:\\Users\ASUS\Documents"')
 
-driver = webdriver.Chrome(
-    executable_path="./driver/chromedriver.exe")
-driver.maximize_window()
-driver.get(URL)
+# driver = webdriver.Chrome(service=service)
+# driver.maximize_window()
+# driver.get(URL)
+
+print(MAIL)
 
 # time.sleep(2)
 # driver.find_element(By.XPATH, '//*[@id="t1452431810"]/div/div[2]/div/div/div[1]/div[1]/button').click()

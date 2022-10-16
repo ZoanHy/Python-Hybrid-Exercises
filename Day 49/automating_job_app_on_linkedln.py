@@ -1,12 +1,15 @@
+from json import load
 from selenium import webdriver
+from dotenv import load_dotenv
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import os
 import time
 
-USERNAME = os.environ["USERNAME"]
+load_dotenv()
+
+USERNAME = os.environ["USER"]
 PASSWORD = os.environ["PASSWORD"]
-PHONE_NUMBER = os.environ["PHONE"]
 
 URL = "https://www.linkedin.com/jobs/search/?f_LF=f_AL&geoId=102257491&keywords=python%20developer&location=London%2C%20England%2C%20United%20Kingdom&redirect=false&position=1&pageNum=0"
 
