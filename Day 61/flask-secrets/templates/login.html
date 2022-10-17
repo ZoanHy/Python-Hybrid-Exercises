@@ -1,37 +1,22 @@
-<!DOCTYPE HTML>
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Access Denied{% endblock %}
 
-<html>
 
-<head>
-	<title>Login</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
+{% block content%}
+<div class="container" style="width: 80%;">
+	<h1 class="text-center">Login</h1>
+	<form action="{{ url_for('login') }}" method="POST">
+		<!-- {{ form.hidden_tag() }}
+		{{ form.email.label }}
+		<br>
+		{{ form.email(size=30) }}
+		<label for="password" class="form-label">{{ form.password.label }} </label>
+		<br>
+		{{ form.password(size=30) }}
 
-<body>
-	<div class="container">
-		<h1 class="text-center">Login</h1>
-		<form action="">
-			<div class="row mb-3 mt-3">
-				<div class="col-6">
-					<label for="email" class="form-label">Email: </label>
-					<input type="text" class="form-control" id="email" name="email">
-				</div>
-				<div class="col-6">
-					<label for="password" class="form-label">Password: </label>
-					<input type="password" class="form-control" id="password" name="password">
-				</div>
-			</div>
-			<div class="row text-center">
-				<button class="btn btn-primary" type="submit">Submit</button>
-			</div>
-			
-		</form>
-	</div>
-
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-		crossorigin="anonymous"></script>
-</body>
-
-</html>
+		{{ form.submit() }} -->
+		{{ wtf.quick_form(form, novalidate=True) }}
+	</form>
+</div>
+{% endblock %}
