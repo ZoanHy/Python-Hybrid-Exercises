@@ -2,19 +2,21 @@ from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 from flask_sqlalchemy import SQLAlchemy
 
+
 app = Flask(__name__)
 db = SQLAlchemy()
 
 # ---------- Create Database -------------
+FOLDER = "C:/Users/ASUS/BK University/5_Self_Study/6_PythonHybrid/db" 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///books.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{FOLDER}/books.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(250),  nullable=False)
+    title = db.Column(db.String(250), nullable=False)
     author = db.Column(db.String(250), nullable=False)
     rating = db.Column(db.Float, nullable=False)
 
